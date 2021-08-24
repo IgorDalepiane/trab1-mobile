@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:trab1_mobile/widgets/bottom_nav_bar.dart';
+import 'package:trab1_mobile/widgets/custom_appbar.dart';
 import 'package:trab1_mobile/widgets/custom_card.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -14,26 +15,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xffffffca),
-        toolbarHeight: 160,
-        bottom: PreferredSize(
-          child: Container(
-            color: Colors.black,
-            height: 2.0,
-          ),
-          preferredSize: Size.fromHeight(4.0),
-        ),
-        title: Text(
-          'Receitas Delit',
-          style: TextStyle(
-            color: Colors.black,
-            fontFamily: "Righteous",
-            fontSize: 40,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-      ),
+      appBar: CustomAppBar(),
       bottomNavigationBar: BottomNavBar(selectedIndex: 0),
       backgroundColor: Color(0xfff7f7e3),
       body: SingleChildScrollView(
