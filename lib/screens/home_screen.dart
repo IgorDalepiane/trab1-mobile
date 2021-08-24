@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:trab1_mobile/widgets/bottom_nav_bar.dart';
+import 'package:trab1_mobile/widgets/custom_card.dart';
 
 class HomeScreen extends StatelessWidget {
   final List<String> imgList = [
@@ -72,81 +73,28 @@ class HomeScreen extends StatelessWidget {
                           .toList(),
                     ),
                   ),
-                  Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
-                        child: Card(
-                          clipBehavior: Clip.antiAlias,
-                          child: Column(
-                            children: [
-                              ListTile(
-                                leading: Image.asset('assets/images/cacetinho.png'),
-                                title: const Text('Cacetinho no Balaio'),
-                                subtitle: Text(
-                                  'Delícia tradicional',
-                                  style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(16.0),
-                                child: Text(
-                                  'No Rio de Janeiro, conta-se que o primeiro gaúcho a pedir um Cacetinho foi enrabado por 5 padeiros ao mesmo tempo. Desde então, todo gaúcho, ao viajar para o Rio, ganha um folheto explicativo sobre como chamar pão francês fora de sua terra colorida.',
-                                  style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                                ),
-                              ),
-                              ButtonBar(
-                                alignment: MainAxisAlignment.start,
-                                children: [
-                                  TextButton(
-                                    onPressed: () {
-                                      // Perform some action
-                                    },
-                                    child: const Text('VER RECEITA'),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 24),
+                    child: Column(
+                      children: [
+                        CustomCard(
+                          description:
+                              'No Rio de Janeiro, conta-se que o primeiro gaúcho a pedir um Cacetinho foi enrabado por 5 padeiros ao mesmo tempo. Desde então, todo gaúcho, ao viajar para o Rio, ganha um folheto explicativo sobre como chamar pão francês fora de sua terra colorida.',
+                          logoPath: 'assets/images/cacetinho.png',
+                          title: 'Cacetinho no Balaio',
+                          subTitle: 'Delícia tradicional',
+                          recipePage: 'adwad',
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
-                        child: Card(
-                          clipBehavior: Clip.antiAlias,
-                          child: Column(
-                            children: [
-                              ListTile(
-                                leading: Image.asset('assets/images/ovofrito.png'),
-                                title: const Text('Pão com Ovo'),
-                                subtitle: Text(
-                                  'Delícia tradicional',
-                                  style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(16.0),
-                                child: Text(
-                                  'Tão importante quanto o sanduíche de presunto e o sanduíche-íche, o sanduba de ovo foi criado pela Dona Florinda em 1954 e até hoje é o mais vendido sanduíche do mundo. Tendo inclusive o Godinez desenhado a versão mais famosa do sanduíche-íche para o Professor Girafales.',
-                                  style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                                ),
-                              ),
-                              ButtonBar(
-                                alignment: MainAxisAlignment.start,
-                                children: [
-                                  TextButton(
-                                    onPressed: () {
-                                      // Perform some action
-                                    },
-                                    child: const Text('VER RECEITA'),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
+                        CustomCard(
+                          description:
+                              'Tão importante quanto o sanduíche de presunto e o sanduíche-íche, o sanduba de ovo foi criado pela Dona Florinda em 1954 e até hoje é o mais vendido sanduíche do mundo. Tendo inclusive o Godinez desenhado a versão mais famosa do sanduíche-íche para o Professor Girafales.',
+                          logoPath: 'assets/images/ovofrito.png',
+                          title: 'Pão com Ovo',
+                          subTitle: 'Delícia tradicional',
+                          recipePage: 'adwad',
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   )
                 ],
               ),
