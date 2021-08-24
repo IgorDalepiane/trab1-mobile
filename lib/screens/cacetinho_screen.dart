@@ -94,6 +94,9 @@ class CacetinhoScreen extends StatelessWidget {
               title: Text(
                   'Após modele a massa do seu jeito e asse em forno de 200ºC em 45 minutos.',
                   style: TextStyle(fontSize: 14, color: Colors.grey.shade700)),
+            ),
+            SizedBox(
+              height: 20,
             )
           ],
         ),
