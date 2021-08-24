@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:trab1_mobile/screens/cacetinho_screen.dart';
 import 'package:trab1_mobile/widgets/bottom_nav_bar.dart';
 import 'package:trab1_mobile/widgets/custom_appbar.dart';
 import 'package:trab1_mobile/widgets/custom_card.dart';
@@ -39,14 +40,24 @@ class HomeScreen extends StatelessWidget {
                       ),
                       items: imgList
                           .map(
-                            (item) => Container(
-                              child: Center(
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.asset(
-                                    item,
-                                    fit: BoxFit.cover,
-                                    width: 1000,
+                            (item) => GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => CacetinhoScreen(id: 1),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                child: Center(
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image.asset(
+                                      item,
+                                      fit: BoxFit.cover,
+                                      width: 1000,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -66,6 +77,7 @@ class HomeScreen extends StatelessWidget {
                           title: 'Cacetinho no Balaio',
                           subTitle: 'Delícia tradicional',
                           recipePage: 'adwad',
+                          id: 1,
                         ),
                         CustomCard(
                           description:
@@ -74,6 +86,7 @@ class HomeScreen extends StatelessWidget {
                           title: 'Pão com Ovo',
                           subTitle: 'Delícia tradicional',
                           recipePage: 'adwad',
+                          id: 1,
                         ),
                       ],
                     ),

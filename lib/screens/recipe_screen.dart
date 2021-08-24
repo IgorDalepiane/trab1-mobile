@@ -13,50 +13,16 @@ class RecipeScreen extends StatelessWidget {
       bottomNavigationBar: BottomNavBar(selectedIndex: 1),
       body: SingleChildScrollView(
         child: Column(
-          children: [
-            CustomCardNoDesc(
+          children: new List.generate(
+            10,
+            (index) => new CustomCardNoDesc(
               logoPath: 'assets/images/cacetinho.png',
               title: 'Cacetinho no Balaio',
               subTitle: 'Delícia tradicional',
               recipePage: 'cacetinho',
+              id: 1,
             ),
-            CustomCardNoDesc(
-              logoPath: 'assets/images/cacetinho.png',
-              title: 'Cacetinho no Balaio',
-              subTitle: 'Delícia tradicional',
-              recipePage: 'cacetinho',
-            ),
-            CustomCardNoDesc(
-              logoPath: 'assets/images/cacetinho.png',
-              title: 'Cacetinho no Balaio',
-              subTitle: 'Delícia tradicional',
-              recipePage: 'cacetinho',
-            ),
-            CustomCardNoDesc(
-              logoPath: 'assets/images/cacetinho.png',
-              title: 'Cacetinho no Balaio',
-              subTitle: 'Delícia tradicional',
-              recipePage: 'cacetinho',
-            ),
-            CustomCardNoDesc(
-              logoPath: 'assets/images/cacetinho.png',
-              title: 'Cacetinho no Balaio',
-              subTitle: 'Delícia tradicional',
-              recipePage: 'cacetinho',
-            ),
-            CustomCardNoDesc(
-              logoPath: 'assets/images/cacetinho.png',
-              title: 'Cacetinho no Balaio',
-              subTitle: 'Delícia tradicional',
-              recipePage: 'cacetinho',
-            ),
-            CustomCardNoDesc(
-              logoPath: 'assets/images/cacetinho.png',
-              title: 'Cacetinho no Balaio',
-              subTitle: 'Delícia tradicional',
-              recipePage: 'cacetinho',
-            )
-          ],
+          ),
         ),
       ),
     );

@@ -7,7 +7,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Color(0xffffffca),
-      toolbarHeight: 160,
+      toolbarHeight: preferredSize.height,
+      centerTitle: true,
       bottom: PreferredSize(
         child: Container(
           color: Colors.black,
@@ -28,5 +29,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size(100, 100);
+  Size get preferredSize => Size.fromHeight(100);
 }

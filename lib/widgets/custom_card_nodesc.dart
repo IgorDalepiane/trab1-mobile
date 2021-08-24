@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trab1_mobile/screens/cacetinho_screen.dart';
 
 class CustomCardNoDesc extends StatelessWidget {
   const CustomCardNoDesc({
@@ -7,12 +8,14 @@ class CustomCardNoDesc extends StatelessWidget {
     required this.title,
     required this.subTitle,
     required this.recipePage,
+    required this.id,
   }) : super(key: key);
 
   final String logoPath;
   final String title;
   final String subTitle;
   final String recipePage;
+  final int id;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +30,17 @@ class CustomCardNoDesc extends StatelessWidget {
                 onPressed: () {
                   // Perform some action
                 },
-                child: const Text('VER RECEITA'),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CacetinhoScreen(id: id),
+                      ),
+                    );
+                  },
+                  child: Text('VER RECEITA'),
+                ),
               ),
               title: Text(title),
               subtitle: Text(

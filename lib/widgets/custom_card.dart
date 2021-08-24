@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trab1_mobile/screens/cacetinho_screen.dart';
 
 class CustomCard extends StatelessWidget {
   const CustomCard({
@@ -8,6 +9,7 @@ class CustomCard extends StatelessWidget {
     required this.subTitle,
     required this.description,
     required this.recipePage,
+    required this.id,
   }) : super(key: key);
 
   final String logoPath;
@@ -15,6 +17,7 @@ class CustomCard extends StatelessWidget {
   final String subTitle;
   final String description;
   final String recipePage;
+  final int id;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +49,17 @@ class CustomCard extends StatelessWidget {
                   onPressed: () {
                     // Perform some action
                   },
-                  child: const Text('VER RECEITA'),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CacetinhoScreen(id: id),
+                        ),
+                      );
+                    },
+                    child: Text('VER RECEITA'),
+                  ),
                 ),
               ],
             ),
