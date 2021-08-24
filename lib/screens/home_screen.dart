@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:trab1_mobile/widgets/bottom_nav_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -13,13 +14,6 @@ class _HomeScreenState extends State<HomeScreen> {
     'assets/images/receita4.jpg',
     'assets/images/receita5.jpg',
   ];
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,25 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
-        child: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined),
-              label: 'HOME',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.lunch_dining_outlined),
-              label: 'RECEITAS',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.article_outlined),
-              label: 'SOBRE',
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: Color(0xffb8b861),
-          onTap: _onItemTapped,
-        ),
+        child: BottomNavBar(selectedIndex: 0),
       ),
       backgroundColor: Color(0xfff7f7e3),
       body: SingleChildScrollView(
@@ -115,28 +91,24 @@ class _HomeScreenState extends State<HomeScreen> {
                   Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 6, horizontal: 12),
+                        padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
                         child: Card(
                           clipBehavior: Clip.antiAlias,
                           child: Column(
                             children: [
                               ListTile(
-                                leading:
-                                    Image.asset('assets/images/cacetinho.png'),
+                                leading: Image.asset('assets/images/cacetinho.png'),
                                 title: const Text('Cacetinho no Balaio'),
                                 subtitle: Text(
                                   'Delícia tradicional',
-                                  style: TextStyle(
-                                      color: Colors.black.withOpacity(0.6)),
+                                  style: TextStyle(color: Colors.black.withOpacity(0.6)),
                                 ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(16.0),
                                 child: Text(
                                   'No Rio de Janeiro, conta-se que o primeiro gaúcho a pedir um Cacetinho foi enrabado por 5 padeiros ao mesmo tempo. Desde então, todo gaúcho, ao viajar para o Rio, ganha um folheto explicativo sobre como chamar pão francês fora de sua terra colorida.',
-                                  style: TextStyle(
-                                      color: Colors.black.withOpacity(0.6)),
+                                  style: TextStyle(color: Colors.black.withOpacity(0.6)),
                                 ),
                               ),
                               ButtonBar(
@@ -155,28 +127,24 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 6, horizontal: 12),
+                        padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
                         child: Card(
                           clipBehavior: Clip.antiAlias,
                           child: Column(
                             children: [
                               ListTile(
-                                leading:
-                                    Image.asset('assets/images/ovofrito.png'),
+                                leading: Image.asset('assets/images/ovofrito.png'),
                                 title: const Text('Pão com Ovo'),
                                 subtitle: Text(
                                   'Delícia tradicional',
-                                  style: TextStyle(
-                                      color: Colors.black.withOpacity(0.6)),
+                                  style: TextStyle(color: Colors.black.withOpacity(0.6)),
                                 ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(16.0),
                                 child: Text(
                                   'Tão importante quanto o sanduíche de presunto e o sanduíche-íche, o sanduba de ovo foi criado pela Dona Florinda em 1954 e até hoje é o mais vendido sanduíche do mundo. Tendo inclusive o Godinez desenhado a versão mais famosa do sanduíche-íche para o Professor Girafales.',
-                                  style: TextStyle(
-                                      color: Colors.black.withOpacity(0.6)),
+                                  style: TextStyle(color: Colors.black.withOpacity(0.6)),
                                 ),
                               ),
                               ButtonBar(
