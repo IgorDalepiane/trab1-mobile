@@ -2,12 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:trab1_mobile/widgets/bottom_nav_bar.dart';
 
-class HomeScreen extends StatefulWidget {
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
+class HomeScreen extends StatelessWidget {
   final List<String> imgList = [
     'assets/images/receita1.jpg',
     'assets/images/receita3.jpg',
@@ -38,18 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 5.0,
-              color: Colors.black,
-            ),
-          ],
-        ),
-        child: BottomNavBar(selectedIndex: 0),
-      ),
+      bottomNavigationBar: BottomNavBar(selectedIndex: 0),
       backgroundColor: Color(0xfff7f7e3),
       body: SingleChildScrollView(
         child: Column(
