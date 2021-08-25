@@ -13,7 +13,7 @@ class CacetinhoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar(username: 'Lucas'),
       bottomNavigationBar: BottomNavBar(selectedIndex: 1),
       body: SingleChildScrollView(
         child: Column(

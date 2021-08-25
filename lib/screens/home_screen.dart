@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar(username: 'Lucas'),
       bottomNavigationBar: BottomNavBar(selectedIndex: 0),
       backgroundColor: Color(0xfff7f7e3),
       body: SingleChildScrollView(
@@ -45,7 +45,8 @@ class HomeScreen extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => CacetinhoScreen(id: 1),
+                                    builder: (context) =>
+                                        CacetinhoScreen(id: 1),
                                   ),
                                 );
                               },
