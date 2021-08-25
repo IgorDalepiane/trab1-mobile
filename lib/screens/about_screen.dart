@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
+
 import 'package:trab1_mobile/widgets/bottom_nav_bar.dart';
 import 'package:trab1_mobile/widgets/custom_appbar.dart';
 
 class AboutScreen extends StatelessWidget {
-  const AboutScreen({Key? key}) : super(key: key);
+  const AboutScreen({
+    Key? key,
+    required this.username,
+  }) : super(key: key);
+  final String username;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(username: 'Lucas'),
-      bottomNavigationBar: BottomNavBar(selectedIndex: 2),
+      appBar: CustomAppBar(username: username),
+      bottomNavigationBar: BottomNavBar(selectedIndex: 2, username: username),
       body: Container(
         child: SingleChildScrollView(
           padding: EdgeInsets.fromLTRB(20, 30, 20, 30),

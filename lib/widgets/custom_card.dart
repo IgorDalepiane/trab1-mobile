@@ -10,6 +10,7 @@ class CustomCard extends StatelessWidget {
     required this.description,
     required this.recipePage,
     required this.id,
+    required this.username,
   }) : super(key: key);
 
   final String logoPath;
@@ -18,6 +19,7 @@ class CustomCard extends StatelessWidget {
   final String description;
   final String recipePage;
   final int id;
+  final String username;
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +56,7 @@ class CustomCard extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => CacetinhoScreen(id: id),
+                          builder: (context) => CacetinhoScreen(id: id, username: username),
                         ),
                       );
                     },

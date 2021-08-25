@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:trab1_mobile/widgets/bottom_nav_bar.dart';
 
+import 'package:trab1_mobile/widgets/bottom_nav_bar.dart';
 import 'package:trab1_mobile/widgets/custom_appbar.dart';
 
 class CacetinhoScreen extends StatelessWidget {
   const CacetinhoScreen({
     Key? key,
     required this.id,
+    required this.username,
   }) : super(key: key);
   final int id;
+  final String username;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(username: 'Lucas'),
-      bottomNavigationBar: BottomNavBar(selectedIndex: 1),
+      bottomNavigationBar: BottomNavBar(selectedIndex: 1, username: username),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -91,8 +93,7 @@ class CacetinhoScreen extends StatelessWidget {
             ),
             ListTile(
               leading: Text('3.'),
-              title: Text(
-                  'Após modele a massa do seu jeito e asse em forno de 200ºC em 45 minutos.',
+              title: Text('Após modele a massa do seu jeito e asse em forno de 200ºC em 45 minutos.',
                   style: TextStyle(fontSize: 14, color: Colors.grey.shade700)),
             ),
             SizedBox(

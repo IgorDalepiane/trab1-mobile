@@ -5,7 +5,15 @@ import 'package:trab1_mobile/widgets/bottom_nav_bar.dart';
 import 'package:trab1_mobile/widgets/custom_appbar.dart';
 import 'package:trab1_mobile/widgets/custom_card.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key, required this.username}) : super(key: key);
+  final String username;
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   final List<String> imgList = [
     'assets/images/receita1.jpg',
     'assets/images/receita3.jpg',
@@ -16,8 +24,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(username: 'Lucas'),
-      bottomNavigationBar: BottomNavBar(selectedIndex: 0),
+      appBar: CustomAppBar(username: widget.username),
+      bottomNavigationBar: BottomNavBar(selectedIndex: 0, username: widget.username),
       backgroundColor: Color(0xfff7f7e3),
       body: SingleChildScrollView(
         child: Column(
@@ -45,8 +53,7 @@ class HomeScreen extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        CacetinhoScreen(id: 1),
+                                    builder: (context) => CacetinhoScreen(id: 1, username: widget.username),
                                   ),
                                 );
                               },
@@ -79,6 +86,7 @@ class HomeScreen extends StatelessWidget {
                           subTitle: 'Delícia tradicional',
                           recipePage: 'adwad',
                           id: 1,
+                          username: widget.username,
                         ),
                         CustomCard(
                           description:
@@ -88,6 +96,7 @@ class HomeScreen extends StatelessWidget {
                           subTitle: 'Delícia tradicional',
                           recipePage: 'adwad',
                           id: 1,
+                          username: widget.username,
                         ),
                       ],
                     ),

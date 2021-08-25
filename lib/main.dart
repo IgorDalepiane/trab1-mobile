@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:trab1_mobile/screens/home_screen.dart';
+import 'package:trab1_mobile/screens/login_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Righteous'),
-      home: HomeScreen(),
+      home: LoginScreen(),
     );
   }
 }

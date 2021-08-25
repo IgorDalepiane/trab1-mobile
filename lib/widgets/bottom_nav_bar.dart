@@ -4,8 +4,9 @@ import 'package:trab1_mobile/screens/home_screen.dart';
 import 'package:trab1_mobile/screens/recipe_screen.dart';
 
 class BottomNavBar extends StatelessWidget {
-  BottomNavBar({required this.selectedIndex});
+  BottomNavBar({required this.selectedIndex, required this.username});
   final int selectedIndex;
+  final String username;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -40,10 +41,10 @@ class BottomNavBar extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) => index == 0
-                    ? HomeScreen()
+                    ? HomeScreen(username: username)
                     : index == 1
-                        ? RecipeScreen()
-                        : AboutScreen()),
+                        ? RecipeScreen(username: username)
+                        : AboutScreen(username: username)),
           );
         },
       ),
