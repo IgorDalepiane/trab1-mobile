@@ -51,7 +51,7 @@ class AboutScreen extends StatelessWidget {
                 height: 40,
               ),
               Text(
-                "Igor Dalepiane, Lucas Fell, Luiz Fritsch",
+                "Igor Dalepiane, Lucas Fell",
                 style: TextStyle(fontSize: 16),
               ),
             ],
