@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:trab1_mobile/screens/home_screen.dart';
-import 'package:trab1_mobile/widgets/bottom_nav_bar.dart';
-import 'package:trab1_mobile/widgets/custom_appbar.dart';
-import 'package:trab1_mobile/widgets/custom_card_nodesc.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -45,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
               TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  hintText: 'DIgite seu nome',
+                  hintText: 'Digite seu nome',
                 ),
                 onChanged: (value) {
                   setState(() {
@@ -58,10 +54,11 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               TextButton(
                 style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(Colors.blue),
                 ),
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) => HomeScreen(

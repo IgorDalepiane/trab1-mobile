@@ -18,6 +18,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      iconTheme: IconThemeData(color: Colors.black),
       backgroundColor: Color(0xffffffca),
       toolbarHeight: widget.preferredSize.height,
       centerTitle: true,
