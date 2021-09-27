@@ -5,32 +5,32 @@ import 'package:http/http.dart' as http;
 
 import 'package:trab1_mobile/widgets/custom_appbar.dart';
 
-import 'donator_photos.dart';
-
-class DonatorsScreen extends StatefulWidget {
+class DonatorsPhotosScreen extends StatefulWidget {
   final String username;
+  final int userId;
 
-  const DonatorsScreen({
+  const DonatorsPhotosScreen({
     Key? key,
     required this.username,
+    required this.userId,
   }) : super(key: key);
 
   @override
-  State<DonatorsScreen> createState() => _DonatorsScreenState();
+  State<DonatorsPhotosScreen> createState() => _DonatorsPhotosScreenState();
 }
 
-class _DonatorsScreenState extends State<DonatorsScreen> {
-  late Future<dynamic> donators;
+class _DonatorsPhotosScreenState extends State<DonatorsPhotosScreen> {
+  late Future<dynamic> donatorsPhotos;
 
   @override
   void initState() {
-    donators = loadDonators();
+    donatorsPhotos = loadDonatorsPhotos();
     super.initState();
   }
 
-  Future<dynamic> loadDonators() async {
+  Future<dynamic> loadDonatorsPhotos() async {
     final url = Uri.parse(
-      'https://jsonplaceholder.typicode.com/users',
+      'https://jsonplaceholder.typicode.com/albums/${widget.userId}/photos',
     );
     final response = await http.get(url);
     print(response);
@@ -49,68 +49,46 @@ class _DonatorsScreenState extends State<DonatorsScreen> {
       body: Center(
         child: SingleChildScrollView(
           child: FutureBuilder<dynamic>(
-            future: donators, // a previously-obtained Future<String> or null
+            future:
+                donatorsPhotos, // a previously-obtained Future<String> or null
             builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
               List<Widget> children;
               if (snapshot.hasData) {
-                List<dynamic> donators = snapshot.data;
+                List<dynamic> donatorsPhotos = snapshot.data;
                 children = <Widget>[
                   Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: const Text(
-                      'Doadores',
+                      'Fotos do doador',
                       style: TextStyle(fontSize: 24),
                     ),
                   ),
-                  ...donators
+                  ...donatorsPhotos
                       .map(
-                        (donator) => Card(
+                        (donatorPhoto) => Card(
                           clipBehavior: Clip.antiAlias,
                           child: Column(
                             children: [
                               ListTile(
-                                leading: Icon(
-                                  Icons.person,
-                                  size: 48,
-                                ),
-                                title: Text(donator['name']),
-                                subtitle: Text(
-                                  donator['email'],
-                                  style: TextStyle(
-                                      color: Colors.black.withOpacity(0.6)),
-                                ),
+                                title: Text(donatorPhoto['title']),
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(16.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      donator['phone'],
-                                      textAlign: TextAlign.left,
-                                      style: TextStyle(
-                                          color: Colors.black.withOpacity(0.6)),
-                                    ),
-                                    MaterialButton(
-                                      child: Text('VER FOTOS'),
-                                      color: Color(0xffffffca),
-                                      focusColor: Color(0xffffffca),
-                                      splashColor: Color(0xffededbb),
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                DonatorsPhotosScreen(
-                                              username: widget.username,
-                                              userId: donator['id'],
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                  ],
+                                child: Image.network(
+                                  donatorPhoto['url'],
+                                  width: 100,
+                                  height: 100,
+                                  fit: BoxFit.cover,
+                                  loadingBuilder: (BuildContext context,
+                                      Widget child,
+                                      ImageChunkEvent? loadingProgress) {
+                                    if (loadingProgress == null) {
+                                      return child;
+                                    }
+                                    return Center(
+                                      child: CircularProgressIndicator(),
+                                    );
+                                  },
                                 ),
                               ),
                             ],
