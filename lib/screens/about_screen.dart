@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:trab1_mobile/widgets/bottom_nav_bar.dart';
 import 'package:trab1_mobile/widgets/custom_appbar.dart';
 
+import 'donators_screen.dart';
+
 class AboutScreen extends StatelessWidget {
   const AboutScreen({
     Key? key,
@@ -53,6 +55,26 @@ class AboutScreen extends StatelessWidget {
               Text(
                 "Igor Dalepiane, Lucas Fell",
                 style: TextStyle(fontSize: 16),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Center(
+                child: MaterialButton(
+                  child: Text('VER DOADORES'),
+                  color: Color(0xffffffca),
+                  focusColor: Color(0xffffffca),
+                  splashColor: Color(0xffededbb),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            DonatorsScreen(username: username),
+                      ),
+                    );
+                  },
+                ),
               ),
             ],
           ),
